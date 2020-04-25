@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- 이 부분은 주석문입니다. 웹 브라우저는 주석을 화면에 출력하지 않습니다. -->
+<html>
+<head>
+	<!-- 문서제목, 자바스크립트 코드, CSS 스타일 정의, 메타데이터정의 -->
+	<meta charset="utf-8">
+	<title>hm16 : CSS3 advanced</title>
+		<style>
+			@keyframes bomb {
+			from{
+				font-size: 300%;
+			}
+			to{
+				font-size: 100%;
+			}
+			}
+			h3{
+				animation-name:bomb; 
+				animation-duration:3s;
+				animation-iteration-count:initial;
+				color: maroon;
+			}
+			
+			#fixed {
+				position: fixed;
+				bottom: 10px;
+				left: 40px;
+				width: 100px;
+				padding: 20px;
+				background:green;
+				color:white
+				
+			
+			}
+			div#fixed { position : absolute; 
+			transform: translateY(100px);} 
+		    
+			img { position : absolute; }
+			#back{z-index: 1; width:800px ; height: 700px;
+				border: 5px dotted red;
+			}
+			#chrismastree{ z-index :2; left: 80px;; top:130px;}	
+			#redball{z-index: 3; left:255px; top: 620px;
+			width: 50px;}
+
+			#che1{z-index: 3; left:405px; top:280px}
+			#pen1{z-index: 3; left:330px ; top:440px;}
+			#santa{z-index: 3; left:580px ; top:533px;}
+	
+		
+		</style>
+		<script></script>
+	</head>
+
+	<body>
+
+		<h3>크리스마스 카드</h3>
+		<hr><audio src="media/chrimassong.mp3"controls autoplay loop></audio>
+	
+		<div id="fixed">
+			hm16 김민준
+			
+		</div>
+		<div>
+			<img id="chrismastree" src="media/christmastree.png">
+			<img id="back" src="media/background.png">
+			<img id="che1" src="media/che1.png">
+			<img id="pen1" src="media/pen1.png">
+			<img id="santa" src="media/santa.png">
+			<img id="redball" src="media/redball.png">
+		</div> 
+		
