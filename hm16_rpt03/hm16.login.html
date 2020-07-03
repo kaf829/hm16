@@ -1,0 +1,32 @@
+<html>
+<head><title>
+</title></head>
+<script>
+    </script>
+<style>
+
+input[type=text]:focus, input[type=email]:focus { font-size : 110%; }
+input[type=url]:focus { font-size : 110%; }
+input[type=tel]:focus { font-size : 110%; }
+
+</style>
+<body onload="document.getElementById('name').focus();">
+<h3>테니스 동아리</h3>
+<hr>
+<form>
+<fieldset>
+<legend>본인정보</legend>
+이메일 : <input type="email" id='name' onblur="checkFilled(this)" ><br>
+이름 : <input type="text"  id='name' onblur="checkFilled(this)"><br> 
+전화번호 : <input type="tel"  id='name' onblur="checkFilled(this)"><br>
+태니스 라켓 유뮤  <input type="radio" />
+        유
+<input type="radio" />
+        무<br />
+<input type="submit" value="완료">
+
+</fieldset>
+
+</form>
+</body>
+</html>

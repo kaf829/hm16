@@ -1,0 +1,77 @@
+<!DOCTYPE html>->
+<html lang="en">
+  <head>
+    
+    <meta charset="UTF-8" />
+    <meta name = "viewpoint" content="width=device-width, inintial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Alarm clock</title>
+    </head>
+
+    <body>
+        
+    <input type="datetime-local" id="alarmTime"/>
+    <button onclick="setAlarm(this);" id="alarmButton">Set Alarm</button>
+
+    <div id="alarmOptions" style="display: none;">
+       <button onclick="Snooze();"> 5분뒤 알람</button>
+       <button onclick="StopAlarm()">Stop</button>> 
+    </div>
+
+    <script>
+        var alarmSound = new Audio();
+        alarmSound.src="media/alarm.mp3";
+        var alarmTimer;
+
+        function setAlarm(button){
+          var ms =document.getElementById('alarmTime').valueAsNumber;
+          if(isNaN(ms)){
+              alert('invalid Date');
+              return;
+              }
+              var alarm = new Date(ms);
+              var alarmTime = new Date(alarm.getUTCFullYear(), alarm.getUTCMonth(), alarm.getUTCDate(),  alarm.getUTCHours(), alarm.getUTCMinutes(), alarm.getUTCSeconds());
+              var differenceInMs = alarmTime.getTime() - (new Date()).getTime();
+
+              if(differenceInMs < 0) {
+                  alert('Specified time is already passed!');
+                  return;
+
+              }
+              alarmTimer = setTimeout(initAlarm, differenceInMs);
+
+              Button.innerText ='Cancel Alarm';
+              button.setAttribute('onclick','cancelAlarm(this);');
+        };
+        function cancelAlarm(button) {
+            button.innerText ='Set Alarm';
+            button.setAttribute('onclick', 'setAlarm(this);');
+            clearTimeout(alarmTimer);
+                    };
+  
+
+
+        function initAlarm(){
+            alarmSound.play();
+            document.getElementById('alarmOptions').style.display='';
+
+        };
+
+        function StopAlarm(){
+            alarmSound.pause();
+            alarmSound.currentTime = 0;
+            document.getElementById('alarmOptions').style.display = 'none';
+            cancelAlarm(document.getElementById('alarmButton'));
+        };
+
+        function Snooze() {
+            StopAlarm();
+            setTimeout(initAlarm, 36000); 
+        };
+</script>
+
+
+</script>
+<h3>알람(시간이 되면 알람소리가 나옵니다)</h3>
+</body>
+</html>
